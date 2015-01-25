@@ -1,12 +1,10 @@
-
-# Merges the training and the test sets to create one data set.
-# Extracts only the measurements on the mean and standard deviation for each measurement. 
-# Uses descriptive activity names to name the activities in the data set
-# Appropriately labels the data set with descriptive variable names. 
-# From the data set in step 4, creates a second, independent tidy data set 
-# with the average of each variable for each activity and each subject.
-
+# Author: Mathias Schindler
+# Date: 25.1.2015
 run_analysis <- function() {
+        # this function takes data from "UCI HAR Dataset", tidies it 
+        # and summarizes the data into a new data set stored in tidyDataSchindler.txt
+        # README.rm contains information needed to run this script
+        # Codebook.rm contains information on the data and the performed operations
         
         # Perfrom setup
         # load the dplyr and data.table library
@@ -40,7 +38,7 @@ run_analysis <- function() {
         # I tried loading the data directly as a table but R always crashed on me
         subData <- data.table(subData)
         
-        # name the activities and add the subject data in the data set
+        # name the activities and add the subject/volunteer data in the data set
         # get activities
         activityFactor <- getActivityFactor()
         # add activity
@@ -63,7 +61,7 @@ run_analysis <- function() {
         # set the new variable names without copying the table and keeping the first two column names
         setnames(sumData, c("volunteerNumber", "activity", newVariableNames[3:length(newVariableNames)]))
         
-        # write the tidy data to the disk
+        # write the tidy data to disk
         write.table(sumData, "tidyDataSchindler.txt", row.name=FALSE)
 }
 

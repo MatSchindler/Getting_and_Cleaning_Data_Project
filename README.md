@@ -1,8 +1,8 @@
 Author: Mathias Schindler
 Date: 25.1.2015
 
-This files describes how the R script „run_analysis.R“ works. This script was
-tested on the following platform:
+This files describes how the R script „run_analysis.R“ works. This script was written 
+for the Coursera course „Getting and Cleaning Data“. It creates a tidy data set described in CodeBook.md. It was tested on the following platform:
 
 platform       x86_64-apple-darwin13.4.0   
 arch           x86_64                      
